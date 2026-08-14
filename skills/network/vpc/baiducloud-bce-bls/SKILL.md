@@ -14,7 +14,7 @@ description: >
 
 ## 前置条件
 
-- **Region**：bj/gz/su/bd/fwh/hkg/nj/yq/cd，必填，用户未提供时主动询问
+- **Region**：bj/gz/su/bd/fwh/hkg/nj/yq/cd，必填，用户未提供时主动询问1
 - **AK/SK**：脚本自动按以下顺序解析，无需手动处理
   1. 命令行参数 `--ak` / `--sk`
   2. 环境变量 `BCE_BLS_ACCESS_KEY` / `BCE_BLS_SECRET_KEY`
