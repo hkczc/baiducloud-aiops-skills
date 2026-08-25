@@ -8,7 +8,7 @@ description: >
 
 ## 1. 目标与边界
 
-test此 Skill 通过百度云 BCE CLI（`bce` 命令）管理负载均衡服务。`SKILL.md` 是 agent 的主运行手册，必须能独立指导 agent 完成：理解用户意图、解析 BCE CLI、确认上下文、选择 API、构造参数、按需查 references、执行 dry-run/真实命令或输出命令。
+Skill 通过百度云 BCE CLI（`bce` 命令）管理负载均衡服务。`SKILL.md` 是 agent 的主运行手册，必须能独立指导 agent 完成：理解用户意图、解析 BCE CLI、确认上下文、选择 API、构造参数、按需查 references、执行 dry-run/真实命令或输出命令。
 
 **支持 4 种负载均衡类型：**
 
