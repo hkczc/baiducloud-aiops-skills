@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "mode": "offline",
+  "endpoint": "offline",
+  "selection": {
+    "requestedCsnIds": [],
+    "unmatchedCsnIds": []
+  },
+  "coverage": {
+    "listCsns": {"status": "success", "count": 3, "queries": 1, "failedQueries": 0},
+    "detailCsns": {"status": "partial", "successfulCsns": 2, "failedCsns": 1, "queries": 3},
+    "listInstances": {"status": "partial", "successfulCsns": 2, "failedCsns": 1, "queries": 3, "instanceCount": 6}
+  },
+  "csns": [
+    {
+      "csnId": "csn-demo-a",
+      "name": "production-core",
+      "description": "sample",
+      "status": "active",
+      "instanceNum": 5,
+      "csnBpNum": 1,
+      "createdTime": "2026-01-01T00:00:00Z",
+      "tags": [],
+      "_detailStatus": "success",
+      "_instancesStatus": "success",
+      "instances": [
+        {"attachId": "attach-1", "instanceType": "vpc", "instanceId": "vpc-1", "instanceName": "app", "instanceRegion": "bj", "instanceAccountId": "account-1", "status": "attached"},
+        {"attachId": "attach-2", "instanceType": "vpc", "instanceId": "vpc-2", "instanceName": "database", "instanceRegion": "gz", "instanceAccountId": "account-1", "status": "attach_failed"},
+        {"attachId": "attach-3", "instanceType": "channel", "instanceId": "channel-1", "instanceName": "idc", "instanceRegion": "bj", "instanceAccountId": "account-2", "status": "attaching"},
+        {"attachId": "attach-3", "instanceType": "channel", "instanceId": "channel-1", "instanceName": "idc", "instanceRegion": "bj", "instanceAccountId": "account-2", "status": "attaching"},
+        {"attachId": "attach-4", "instanceType": "vpn", "instanceId": "vpn-1", "instanceName": "", "instanceRegion": "bj", "instanceAccountId": "", "status": "attached"}
+      ]
+    },
+    {
+      "csnId": "csn-demo-b",
+      "name": "staging-core",
+      "description": "sample",
+      "status": "active",
+      "instanceNum": 1,
+      "csnBpNum": 0,
+      "createdTime": "2026-01-02T00:00:00Z",
+      "tags": [],
+      "_detailStatus": "success",
+      "_instancesStatus": "success",
+      "instances": [
+        {"attachId": "attach-5", "instanceType": "vpc", "instanceId": "vpc-1", "instanceName": "app", "instanceRegion": "bj", "instanceAccountId": "account-1", "status": "attached"}
+      ]
+    },
+    {
+      "csnId": "csn-demo-c",
+      "name": "unknown-core",
+      "description": "sample",
+      "status": "active",
+      "instanceNum": 2,
+      "csnBpNum": 0,
+      "createdTime": "2026-01-03T00:00:00Z",
+      "tags": [],
+      "_detailStatus": "failed",
+      "_instancesStatus": "failed",
+      "instances": []
+    }
+  ],
+  "errors": [
+    {"operation": "detailCsn", "scope": "csn-demo-c", "status": 403, "code": "AccessDenied", "path": "/v1/csn/csn-demo-c"},
+    {"operation": "listInstances", "scope": "csn-demo-c", "status": 403, "code": "AccessDenied", "path": "/v1/csn/csn-demo-c/instance"}
+  ]
+}
