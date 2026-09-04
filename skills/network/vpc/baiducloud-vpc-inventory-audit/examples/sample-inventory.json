@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-08-13T08:00:00Z",
+  "mode": "offline",
+  "regions": {
+    "bj": {
+      "endpoint": "https://bcc.bj.baidubce.com",
+      "resources": {
+        "vpcs": [
+          {
+            "vpcId": "vpc-demo-prod",
+            "name": "prod-vpc",
+            "cidr": "10.10.0.0/16",
+            "isDefault": false,
+            "tags": [{"tagKey": "env", "tagValue": "prod"}]
+          }
+        ],
+        "subnets": [
+          {
+            "subnetId": "sbn-demo-app",
+            "name": "app-subnet",
+            "vpcId": "vpc-demo-prod",
+            "zoneName": "cn-bj-a",
+            "cidr": "10.10.1.0/24",
+            "availableIp": 12,
+            "availableUnreservedIp": 10,
+            "tags": [{"tagKey": "tier", "tagValue": "app"}]
+          },
+          {
+            "subnetId": "sbn-demo-db",
+            "name": "db-subnet",
+            "vpcId": "vpc-demo-prod",
+            "zoneName": "cn-bj-b",
+            "cidr": "10.10.2.0/24",
+            "availableIp": 180,
+            "availableUnreservedIp": 178,
+            "tags": []
+          }
+        ],
+        "routeTables": [
+          {
+            "routeTableId": "rt-demo-prod",
+            "vpcId": "vpc-demo-prod",
+            "routeRules": [
+              {
+                "routeRuleId": "rr-local",
+                "sourceAddress": "0.0.0.0/0",
+                "destinationAddress": "10.10.0.0/16",
+                "nexthopType": "local"
+              }
+            ]
+          }
+        ],
+        "securityGroups": [
+          {
+            "securityGroupId": "g-demo-app",
+            "name": "app-sg",
+            "vpcId": "vpc-demo-prod",
+            "tags": [{"tagKey": "owner", "tagValue": "platform"}]
+          }
+        ],
+        "enterpriseSecurityGroups": [],
+        "acls": [
+          {
+            "aclRuleId": "acl-rule-demo",
+            "subnetId": "sbn-demo-app",
+            "direction": "ingress",
+            "action": "allow"
+          }
+        ],
+        "enis": [
+          {
+            "eniId": "eni-demo-app-1",
+            "name": "app-eni-1",
+            "vpcId": "vpc-demo-prod",
+            "subnetId": "sbn-demo-app",
+            "instanceId": "i-demo-app-1",
+            "status": "inuse",
+            "securityGroupIds": ["g-demo-app"],
+            "enterpriseSecurityGroupIds": [],
+            "privateIpSet": [{"privateIpAddress": "10.10.1.10", "primary": true}],
+            "tags": [{"tagKey": "owner", "tagValue": "platform"}]
+          },
+          {
+            "eniId": "eni-demo-orphan-ref",
+            "name": "review-eni",
+            "vpcId": "vpc-demo-prod",
+            "subnetId": "sbn-not-returned",
+            "status": "available",
+            "securityGroupIds": ["g-not-returned"],
+            "enterpriseSecurityGroupIds": [],
+            "privateIpSet": [],
+            "tags": []
+          }
+        ]
+      },
+      "coverage": {
+        "vpcs": {"status": "success", "count": 1},
+        "subnets": {"status": "success", "count": 2},
+        "routeTables": {"status": "success", "count": 1},
+        "securityGroups": {"status": "success", "count": 1},
+        "enterpriseSecurityGroups": {"status": "success", "count": 0},
+        "acls": {"status": "success", "count": 1},
+        "enis": {"status": "success", "count": 2}
+      },
+      "errors": []
+    }
+  }
+}
