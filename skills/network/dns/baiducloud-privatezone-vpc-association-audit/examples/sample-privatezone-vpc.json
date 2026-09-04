@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-03T00:00:00Z",
+  "mode": "offline",
+  "endpoint": "offline",
+  "selection": {
+    "requestedZones": [],
+    "unmatchedZones": []
+  },
+  "coverage": {
+    "listPrivateZones": {
+      "status": "success",
+      "count": 5,
+      "queries": 1,
+      "failedQueries": 0
+    },
+    "detailPrivateZones": {
+      "status": "partial",
+      "successfulZones": 4,
+      "failedZones": 1,
+      "queries": 5
+    }
+  },
+  "zones": [
+    {
+      "zoneId": "zone-demo-root-a",
+      "zoneName": "corp.example",
+      "recordCount": 2,
+      "createTime": "2026-01-01 10:00:00",
+      "updateTime": "2026-02-01 10:00:00",
+      "bindVpcs": [
+        {"vpcId": "vpc-demo-1", "vpcName": "production", "vpcRegion": "bj"},
+        {"vpcId": "vpc-demo-2", "vpcName": "disaster-recovery", "vpcRegion": "gz"}
+      ],
+      "_detailStatus": "success"
+    },
+    {
+      "zoneId": "zone-demo-root-b",
+      "zoneName": "CORP.EXAMPLE.",
+      "recordCount": 0,
+      "createTime": "2026-01-02 10:00:00",
+      "updateTime": "2026-02-02 10:00:00",
+      "bindVpcs": [
+        {"vpcId": "vpc-demo-1", "vpcName": "production-renamed", "vpcRegion": "bj"},
+        {"vpcId": "vpc-demo-1", "vpcName": "production-renamed", "vpcRegion": "bj"}
+      ],
+      "_detailStatus": "success"
+    },
+    {
+      "zoneId": "zone-demo-child",
+      "zoneName": "api.corp.example",
+      "recordCount": 1,
+      "createTime": "2026-01-03 10:00:00",
+      "updateTime": "2026-02-03 10:00:00",
+      "bindVpcs": [
+        {"vpcId": "vpc-demo-1", "vpcName": "production", "vpcRegion": "bj"},
+        {"vpcId": "", "vpcName": "broken-edge", "vpcRegion": "bj"}
+      ],
+      "_detailStatus": "success"
+    },
+    {
+      "zoneId": "zone-demo-unbound",
+      "zoneName": "staging.example",
+      "recordCount": 0,
+      "createTime": "2026-01-04 10:00:00",
+      "updateTime": "2026-02-04 10:00:00",
+      "bindVpcs": [],
+      "_detailStatus": "success"
+    },
+    {
+      "zoneId": "zone-demo-failed",
+      "zoneName": "unknown.example",
+      "recordCount": 3,
+      "createTime": "2026-01-05 10:00:00",
+      "updateTime": "2026-02-05 10:00:00",
+      "_detailStatus": "failed"
+    }
+  ],
+  "errors": [
+    {
+      "operation": "detailPrivateZone",
+      "scope": "zone-demo-failed",
+      "status": 403,
+      "code": "AccessDenied",
+      "path": "/v1/privatezone/zone-demo-failed"
+    }
+  ]
+}
