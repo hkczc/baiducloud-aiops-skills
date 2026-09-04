@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-02T02:00:00Z",
+  "mode": "sample",
+  "regions": {
+    "bj": {
+      "endpoint": "offline",
+      "resources": {
+        "peerConnections": [
+          {
+            "peerConnId": "peerconn-sample-active",
+            "role": "initiator",
+            "status": "active",
+            "bandwidthInMbps": 100,
+            "localIfId": "qpif-local-a",
+            "localIfName": "sample-local",
+            "localVpcId": "vpc-sample-a",
+            "localRegion": "bj",
+            "peerVpcId": "vpc-sample-b",
+            "peerRegion": "gz",
+            "paymentTiming": "Postpaid",
+            "dnsStatus": "open",
+            "createdTime": "2026-01-10 08:00:00",
+            "tags": [
+              {
+                "tagKey": "environment",
+                "tagValue": "sample"
+              }
+            ],
+            "deleteProtect": true,
+            "_detailStatus": "success"
+          },
+          {
+            "peerConnId": "peerconn-sample-error",
+            "role": "acceptor",
+            "status": "error",
+            "bandwidthInMbps": 0,
+            "localIfId": "qpif-local-b",
+            "localVpcId": "vpc-sample-c",
+            "localRegion": "bj",
+            "peerVpcId": "vpc-sample-d",
+            "peerRegion": "bj",
+            "paymentTiming": "Postpaid",
+            "dnsStatus": "syncing",
+            "createdTime": "2026-08-20 09:30:00",
+            "deleteProtect": false,
+            "_detailStatus": "success"
+          }
+        ]
+      },
+      "coverage": {
+        "listPeerConnections": {
+          "status": "success",
+          "count": 2,
+          "queries": 1,
+          "failedQueries": 0
+        },
+        "detailPeerConnections": {
+          "status": "success",
+          "count": 2,
+          "queries": 2,
+          "failedQueries": 0
+        }
+      },
+      "errors": []
+    }
+  }
+}
